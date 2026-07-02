@@ -1,8 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const {
+    getSummary,
+    getByCategory,
+    getUpcoming,
+    getMonthlyTrend,
+} = require("../controllers/analyticsController");
+const { protect } = require("../middleware/authMiddleware");
 
-router.get("/test", (req, res) => {
-    res.json({ message: "Analytics routes working ✅" });
-});
+// All routes are protected
+router.use(protect);
+
+router.get("/summary", getSummary);
+router.get("/category", getByCategory);
+router.get("/upcoming", getUpcoming);
+router.get("/monthly", getMonthlyTrend);
 
 module.exports = router;
