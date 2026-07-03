@@ -208,3 +208,17 @@ img {
     font-size: 14px;
   }
 }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SIDEBAR LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+main.with-sidebar {
+  margin-left: 260px;
+  transition: margin-left 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  main.with-sidebar {
+    margin-left: 0;
+  }
+}

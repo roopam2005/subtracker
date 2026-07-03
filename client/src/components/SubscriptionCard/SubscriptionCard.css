@@ -1,0 +1,135 @@
+.sub-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.sub-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 30px rgba(108, 99, 255, 0.15);
+}
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.sub-name {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.sub-category {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--primary-light);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.sub-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0.5;
+  transition: var(--transition);
+}
+
+.sub-card:hover .sub-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  padding: 6px;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+/* Amount */
+.sub-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.currency {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cycle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Footer */
+.sub-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.renewal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.renewal-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.renewal-days {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.renewal-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Progress Bar */
+.progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: all 0.5s ease;
+  border-radius: 2px;
+}
