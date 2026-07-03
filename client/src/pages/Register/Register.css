@@ -1,0 +1,57 @@
+@import "../Login/Login.css";
+
+/* Password Strength */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.strength-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 55px;
+  text-align: right;
+}
+
+/* Password Mismatch */
+.password-mismatch {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Terms Checkbox */
+.terms-label {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  align-items: flex-start !important;
+  cursor: pointer;
+}
+
+.terms-label input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Fix submit button visibility */
+.auth-submit {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}

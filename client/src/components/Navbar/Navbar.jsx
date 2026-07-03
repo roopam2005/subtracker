@@ -30,12 +30,11 @@ const Navbar = () => {
     >
       <div className="nav-container">
         {/* Logo */}
-        <Link to="/" className="nav-logo">
-          <div className="logo-icon">
-            <span>S</span>
-          </div>
-          <span className="logo-text">SubTracker</span>
-        </Link>
+      <Link to="/" className="nav-logo">
+       <span className="logo-text">
+       Sub<span className="logo-accent">Tracker</span>
+       </span>
+      </Link>
 
         {/* Desktop Menu */}
         <div className="nav-menu-desktop">
