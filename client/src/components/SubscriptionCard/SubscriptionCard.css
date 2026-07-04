@@ -4,15 +4,38 @@
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
+/* Hover uses the card's custom color */
 .sub-card:hover {
   transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: 0 15px 30px rgba(108, 99, 255, 0.15);
+  border-color: var(--card-color);
+  box-shadow: 0 15px 40px color-mix(in srgb, var(--card-color) 25%, transparent);
+}
+
+/* Add subtle glow on hover */
+.sub-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--card-color) 15%, transparent) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.sub-card:hover::before {
+  opacity: 1;
 }
 
 .sub-header {
@@ -20,18 +43,21 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .sub-name {
   font-size: 1.2rem;
   margin-bottom: 4px;
+  text-transform: capitalize;
 }
 
 .sub-category {
   display: inline-block;
   padding: 3px 10px;
-  background: rgba(108, 99, 255, 0.15);
-  color: var(--primary-light);
+  background: color-mix(in srgb, var(--card-color) 15%, transparent);
+  color: var(--card-color);
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -71,6 +97,8 @@
   gap: 4px;
   margin-bottom: 20px;
   font-family: var(--font-heading);
+  position: relative;
+  z-index: 1;
 }
 
 .currency {
@@ -95,6 +123,8 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .renewal-info {
@@ -126,6 +156,8 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: 2px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .progress-fill {

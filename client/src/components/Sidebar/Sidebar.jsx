@@ -51,39 +51,36 @@ const Sidebar = () => {
           mobileOpen ? "mobile-open" : ""
         }`}
       >
-        {/* Logo */}
-        <div className="sidebar-logo">
-          <NavLink to="/dashboard" className="logo-link">
-            <div className="logo-mark">
-              <span>S</span>
-            </div>
-            {!collapsed && (
-              <span className="logo-full">
-                Sub<span className="logo-accent">Tracker</span>
-              </span>
-            )}
-          </NavLink>
+      {/* Logo */}
+      <div className="sidebar-logo">
+      <NavLink to="/dashboard" className="logo-link">
+      {!collapsed ? (
+      <span className="logo-full">
+        Sub<span className="logo-accent">Tracker</span>
+      </span>
+      ) : (
+      <span className="logo-mini">
+        S<span className="logo-accent">T</span>
+      </span>
+    )}
+  </NavLink>
 
-          <button
-            className="collapse-btn desktop-only"
-            onClick={() => setCollapsed(!collapsed)}
-          >
-            {collapsed ? "→" : "←"}
-          </button>
-        </div>
+  <button
+    className="collapse-btn desktop-only"
+    onClick={() => setCollapsed(!collapsed)}
+  >
+    {collapsed ? "→" : "←"}
+  </button>
+</div>
 
-        {/* User Card */}
-        {!collapsed && (
-          <div className="user-card">
-            <div className="user-avatar">
-              {user?.name?.charAt(0).toUpperCase()}
-            </div>
-            <div className="user-info">
-              <p className="user-name">{user?.name}</p>
-              <p className="user-email">{user?.email}</p>
-            </div>
-          </div>
-        )}
+{/* User Info */}
+{!collapsed && (
+  <div className="user-info-card">
+    <p className="user-greeting">Signed in as</p>
+    <p className="user-name-text">{user?.name}</p>
+    <p className="user-email-text">{user?.email}</p>
+  </div>
+)}
 
         {/* Navigation */}
         <nav className="sidebar-nav">

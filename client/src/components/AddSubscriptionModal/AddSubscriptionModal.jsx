@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useSubscription } from "../../context/SubscriptionContext";
+import CustomSelect from "../CustomSelect/CustomSelect";
 import "./AddSubscriptionModal.css";
 
 const AddSubscriptionModal = ({ onClose, editData }) => {
@@ -116,18 +117,15 @@ const AddSubscriptionModal = ({ onClose, editData }) => {
           {/* Category */}
           <div className="form-group">
             <label>Category *</label>
-            <select
+            <CustomSelect
               name="category"
               value={formData.category}
               onChange={handleChange}
-              required
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
+              options={categories.map((cat) => ({
+                value: cat,
+                label: cat,
+              }))}
+            />
           </div>
 
           {/* Amount & Currency */}
@@ -148,17 +146,18 @@ const AddSubscriptionModal = ({ onClose, editData }) => {
 
             <div className="form-group">
               <label>Currency</label>
-              <select
+              <CustomSelect
                 name="currency"
                 value={formData.currency}
                 onChange={handleChange}
-              >
-                <option value="USD">USD ($)</option>
-                <option value="EUR">EUR (€)</option>
-                <option value="GBP">GBP (£)</option>
-                <option value="INR">INR (₹)</option>
-                <option value="JPY">JPY (¥)</option>
-              </select>
+                options={[
+                  { value: "USD", label: "USD ($)" },
+                  { value: "EUR", label: "EUR (€)" },
+                  { value: "GBP", label: "GBP (£)" },
+                  { value: "INR", label: "INR (₹)" },
+                  { value: "JPY", label: "JPY (¥)" },
+                ]}
+              />
             </div>
           </div>
 
@@ -166,15 +165,16 @@ const AddSubscriptionModal = ({ onClose, editData }) => {
           <div className="form-row">
             <div className="form-group">
               <label>Billing Cycle *</label>
-              <select
+              <CustomSelect
                 name="billingCycle"
                 value={formData.billingCycle}
                 onChange={handleChange}
-              >
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
+                options={[
+                  { value: "weekly", label: "Weekly" },
+                  { value: "monthly", label: "Monthly" },
+                  { value: "yearly", label: "Yearly" },
+                ]}
+              />
             </div>
 
             <div className="form-group">
@@ -210,10 +210,10 @@ const AddSubscriptionModal = ({ onClose, editData }) => {
                 <button
                   key={c}
                   type="button"
-                  onClick={() =>
-                    setFormData({ ...formData, color: c })
-                  }
-                  className={`color-btn ${formData.color === c ? "active" : ""}`}
+                  onClick={() => setFormData({ ...formData, color: c })}
+                  className={`color-btn ${
+                    formData.color === c ? "active" : ""
+                  }`}
                   style={{ background: c }}
                 ></button>
               ))}

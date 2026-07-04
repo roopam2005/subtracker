@@ -24,7 +24,7 @@
    LOGO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .sidebar-logo {
-  padding: 24px 20px;
+  padding: 28px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,32 +32,21 @@
 }
 
 .logo-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.2rem;
   color: white;
-}
-
-.logo-mark {
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1rem;
-  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.35);
+  text-decoration: none;
 }
 
 .logo-full {
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
   white-space: nowrap;
-  overflow: hidden;
+}
+
+.logo-mini {
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
 }
 
 .logo-accent {
@@ -83,54 +72,38 @@
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   USER CARD
+   USER INFO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.user-card {
-  margin: 20px;
-  padding: 16px;
-  background: linear-gradient(
-    135deg,
-    rgba(108, 99, 255, 0.1),
-    rgba(255, 101, 132, 0.05)
-  );
-  border: 1px solid rgba(108, 99, 255, 0.15);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.user-info-card {
+  margin: 20px 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
+.user-greeting {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+ .user-name-text {
   font-size: 1rem;
-  box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
-}
-
-.user-info {
-  min-width: 0;
-  flex: 1;
-}
-
-.user-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: white;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 2px;
+  letter-spacing: -0.3px;
+  font-family: var(--font-heading);
 }
 
-.user-email {
+.user-email-text {
   font-size: 0.75rem;
   color: var(--text-muted);
   white-space: nowrap;
@@ -143,7 +116,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .sidebar-nav {
   flex: 1;
-  padding: 8px 12px;
+  padding: 8px 16px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -161,6 +134,7 @@
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .nav-item:hover {
@@ -208,7 +182,7 @@
    FOOTER
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .sidebar-footer {
-  padding: 16px 12px;
+  padding: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -224,6 +198,7 @@
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .logout-btn:hover {
@@ -248,6 +223,7 @@
   border-radius: 12px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .hamburger-line {

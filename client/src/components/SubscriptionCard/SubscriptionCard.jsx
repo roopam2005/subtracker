@@ -36,14 +36,17 @@ const SubscriptionCard = ({ subscription, onEdit, index }) => {
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ delay: index * 0.05 }}
-      className="sub-card"
-      style={{ borderTop: `3px solid ${subscription.color || "#6c63ff"}` }}
-    >
+     layout
+     initial={{ opacity: 0, y: 20 }}
+     animate={{ opacity: 1, y: 0 }}
+     exit={{ opacity: 0, scale: 0.9 }}
+     transition={{ delay: index * 0.05 }}
+     className="sub-card"
+     style={{ 
+    "--card-color": subscription.color || "#6c63ff",
+    borderTop: `3px solid ${subscription.color || "#6c63ff"}`
+     }}
+  >
       {/* Header */}
       <div className="sub-header">
         <div>
