@@ -10,13 +10,14 @@ import Landing from "./pages/Landing/Landing";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Analytics from "./pages/Analytics/Analytics";
+import Calendar from "./pages/Calendar/Calendar";
+import Settings from "./pages/Settings/Settings";
 
-// Layout wrapper
 const AppContent = () => {
   const { user } = useAuth();
   const location = useLocation();
 
-  // Show sidebar only on dashboard/analytics/calendar/settings
   const protectedRoutes = ["/dashboard", "/analytics", "/calendar", "/settings"];
   const showSidebar = user && protectedRoutes.includes(location.pathname);
   const showNavbar = !showSidebar;
@@ -26,7 +27,7 @@ const AppContent = () => {
       <ThreeBackground />
       {showNavbar && <Navbar />}
       {showSidebar && <Sidebar />}
-      
+
       <main className={showSidebar ? "with-sidebar" : ""}>
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -37,6 +38,30 @@ const AppContent = () => {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/analytics"
+            element={
+              <ProtectedRoute>
+                <Analytics />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/calendar"
+            element={
+              <ProtectedRoute>
+                <Calendar />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <Settings />
               </ProtectedRoute>
             }
           />

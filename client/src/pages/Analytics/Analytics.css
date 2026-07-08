@@ -1,0 +1,423 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANALYTICS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.analytics {
+  padding: 40px 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* Header */
+.analytics-header {
+  margin-bottom: 32px;
+}
+
+.page-tag {
+  color: var(--primary-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.page-heading {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Loading */
+.analytics-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.analytics-loading .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(108, 99, 255, 0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.analytics-loading p {
+  color: var(--text-secondary);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   STATS ROW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-block {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.stat-block:hover {
+  border-color: rgba(108, 99, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  color: white;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.stat-change {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stat-change.positive {
+  color: var(--accent);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CHARTS GRID
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.chart-card {
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+.chart-large {
+  grid-column: span 2;
+}
+
+/* Chart Header */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.chart-header h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.chart-header p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.header-count {
+  padding: 6px 12px;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--primary-light);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Chart Empty State */
+.chart-empty {
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+.empty-emoji {
+  font-size: 3rem;
+}
+
+/* Chart Tooltip */
+.chart-tooltip {
+  background: #1a1a2e;
+  border: 1px solid #2a2a3a;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip-label {
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.tooltip-value {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CATEGORY LEGEND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.category-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 0.85rem;
+}
+
+.legend-name {
+  flex: 1;
+  color: var(--text-secondary);
+}
+
+.legend-value {
+  color: white;
+  font-weight: 600;
+  font-family: var(--font-heading);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RENEWALS LIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.renewals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.renewal-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  transition: all 0.2s ease;
+}
+
+.renewal-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+
+.renewal-row.urgent {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.renewal-row.soon {
+  border-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.renewal-color {
+  width: 10px;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px currentColor;
+}
+
+.renewal-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.renewal-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+.renewal-category {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.renewal-meta {
+  text-align: center;
+  min-width: 90px;
+}
+
+.renewal-days {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.renewal-row.urgent .renewal-days {
+  color: #ef4444;
+}
+
+.renewal-row.soon .renewal-days {
+  color: #f59e0b;
+}
+
+.renewal-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.renewal-amount {
+  text-align: right;
+  min-width: 80px;
+}
+
+.amount-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  font-family: var(--font-heading);
+}
+
+.amount-cycle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+/* Custom scrollbar */
+.renewals-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.renewals-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.renewals-list::-webkit-scrollbar-thumb {
+  background: rgba(108, 99, 255, 0.3);
+  border-radius: 2px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 1024px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-large {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics {
+    padding: 90px 20px 40px;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stat-block {
+    padding: 20px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .chart-card {
+    padding: 20px;
+  }
+
+  .chart-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .renewal-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .renewal-meta {
+    text-align: left;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+}
