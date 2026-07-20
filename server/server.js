@@ -29,11 +29,31 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//         CORS SETUP
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const allowedOrigins = [
+    process.env.CLIENT_URL,
+    "http://localhost:5173",
+    "http://localhost:3000",
+];
+
 app.use(
     cors({
-        origin: process.env.CLIENT_URL,
+        origin: function (origin, callback) {
+            // Allow requests with no origin (like mobile apps, curl, Postman)
+            if (!origin) return callback(null, true);
+            
+            if (allowedOrigins.indexOf(origin) !== -1) {
+                callback(null, true);
+            } else {
+                console.log("Blocked by CORS:", origin);
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
         credentials: true,
-        methods: ["GET", "POST", "PUT", "DELETE"],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
@@ -50,7 +70,14 @@ app.get("/", (req, res) => {
     res.json({
         success: true,
         message: "SubTracker API is running 🚀",
+        version: "1.0.0",
+        timestamp: new Date().toISOString(),
     });
+});
+
+// Ping route (to keep Render server awake)
+app.get("/ping", (req, res) => {
+    res.status(200).json({ status: "alive" });
 });
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -82,7 +109,10 @@ app.listen(PORT, () => {
     console.log(`
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   🚀 Server running on port ${PORT}
-  🌍 Mode: ${process.env.NODE_ENV}
+  🌍 Mode: ${process.env.NODE_ENV || "development"}
+  🔗 URL: ${process.env.NODE_ENV === "production" 
+      ? "Production" 
+      : `http://localhost:${PORT}`}
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   `);
 

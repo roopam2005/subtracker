@@ -1,7 +1,10 @@
 import axios from "axios";
 
+// Auto-detect if in production or development
+const API_URL = import.meta.env.VITE_API_URL || "/api";
+
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: API_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
